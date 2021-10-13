@@ -1,0 +1,68 @@
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div class="content-logo">
+      logo
+    </div>
+
+    <ion-card class="ion-padding">
+      <ion-row class="card-header ion-text-center">
+        <ion-col>
+          <h1 class="title">Acceder a tu cuenta</h1>
+          <p class="secodtitle">Ingresa tu datos para acceder</p>
+        </ion-col>
+      </ion-row>
+      <div class="card-form">
+        <form [formGroup]="loginForm">
+          <ion-row>
+            <ion-col>
+              <label for="inp" class="inp">
+                <input type="text" id="inp" formControlName="id">
+                <span class="label">Correo</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <label for="inp" class="inp">
+                <input type="password" id="inp" formControlName="password">
+                <span class="label">Contraseña</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+        </form>
+      </div>
+      <div class="card-button">
+        <ion-row>
+          <ion-col>
+            <app-button [type]="'submit'" [text]="'Iniciar session'" [color]="'button-primary'"
+              (clickButton)="onSubmit()"></app-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <app-button [text]="'Registro'" [color]="'button-liner'" routerLink="/register"></app-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p class="ion-text-center">
+              <a href="">
+                olvido de usuario
+              </a>
+            </p>
+          </ion-col>
+        </ion-row>
+      </div>
+
+    </ion-card>
+
+
+    <!-- <div class="content-terms">
+      <p> {{'login.terms' | translate}} <a>{{'login.terms-use' | translate}}</a> {{'login.and' | translate}} <a>{{'login.terms-privacy' | translate}}</a></p>
+    </div> -->
+  </div>
+
+
+</ion-content>

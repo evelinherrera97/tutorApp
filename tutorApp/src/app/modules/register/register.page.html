@@ -1,0 +1,215 @@
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div class="content-logo">
+      logo
+    </div>
+
+    <ion-card class="ion-padding">
+      <div class="content-stepper">
+        <!-- <app-step class="stepper" [info]="info"></app-step> -->
+      </div>
+
+
+      <form [formGroup]="registerFormStepOne" *ngIf="stepOne">
+        <ion-row class="card-header ion-text-center">
+          <ion-col>
+            <h1 class="title">¿Quien eres?</h1>
+            <p class="secodtitle">Queremos conocerte</p>
+          </ion-col>
+        </ion-row>
+        <div class="step-one">
+          <ion-row>
+            <ion-col>
+              <label for="name" class="inp">
+                <input type="text" id="document" formControlName="name">
+                <span class="label">Nombre</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <label for="surname" class="inp">
+                <input type="text" id="surname" formControlName="surname">
+                <span class="label">Apellido</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div class="card-button">
+          <ion-row>
+            <ion-col>
+              <app-button [type]="'submit'" [text]="'buttons.continue'" [color]="'button-primary'"
+                (clickButton)="onSubmitStepOne()"></app-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <app-button [text]="'buttons.cancel'" [color]="'button-line'"></app-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </form>
+
+      <form [formGroup]="registerFormStepTwo" *ngIf="stepTwo">
+        <ion-row class="card-header ion-text-center">
+          <ion-col>
+            <h1 class="title">¡Hola Manuela!</h1>
+            <p class="secodtitle">Ahora crea tu usuario</p>
+          </ion-col>
+        </ion-row>
+        <div class="step-two">
+          <ion-row>
+            <ion-col size="3">
+              <label for="documentType" class="inp">
+                <select id="documentType" formControlName="documentType">
+                  <option value="cc">CC</option>
+                  <option value="ti">TI</option>
+                </select>
+                <span class="label">CC</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+            <ion-col>
+              <label for="document" class="inp">
+                <input type="text" id="document" formControlName="document">
+                <span class="label">Número de documento</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <label for="phoneNumber" class="inp">
+                <input type="number" id="phoneNumber" formControlName="phoneNumber">
+                <span class="label">Numero</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div class="card-button">
+          <ion-row>
+            <ion-col>
+              <app-button [type]="'submit'" [text]="'Continuar'" [color]="'button-primary'"
+                (clickButton)="onSubmitStepOne()">
+              </app-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <app-button [text]="'Cancelar'" [color]="'button-liner'" routerLink="/login"></app-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </form>
+
+      <form [formGroup]="registerFormStepThree" *ngIf="stepThree">
+        <ion-row class="card-header ion-text-center">
+          <ion-col>
+            <h1 class="title">¿Cual es tu rol?</h1>
+            <p class="secodtitle">Eres tutor o estudiantes</p>
+          </ion-col>
+        </ion-row>
+        <div class="step-three">
+          <ion-row>
+            <ion-col>
+              <label for="rol" class="inp">
+                <select id="rol" formControlName="rol">
+                  <option value="tutor">Tutor</option>
+                  <option value="student">Estudiante</option>
+                </select>
+                <span class="label">rol</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <label for="especialidad" class="inp">
+                <select id="especialidad" formControlName="especialidad">
+                  <option value="1">Algecra</option>
+                  <option value="2">Calculo</option>
+                  <option value="2">Estadistica</option>
+                  <option value="2">Geometria</option>
+                  <option value="2">Fisica</option>
+                </select>
+                <span class="label">Especialidad</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+
+        </div>
+        <div class="card-button">
+          <ion-row>
+            <ion-col>
+              <app-button [type]="'submit'" [text]="'Continuar'" [color]="'button-primary'"
+                (clickButton)="onSubmitStepThree()"></app-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <app-button [text]="'Cancelar'" [color]="'button-liner'"></app-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </form>
+
+      <form [formGroup]="registerFormStepFour" *ngIf="stepFour">
+        <ion-row class="card-header ion-text-center">
+          <ion-col>
+            <h1 class="title">¡Hola Manuela!</h1>
+            <p class="secodtitle">Ahora crea tu usuario</p>
+          </ion-col>
+        </ion-row>
+        <div class="step-two">
+          <ion-row>
+            <ion-col size="3">
+              <label for="documentType" class="inp">
+                <select id="documentType" formControlName="documentType">
+                  <option value="cc">CC</option>
+                  <option value="ti">TI</option>
+                </select>
+                <span class="label">CC</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+            <ion-col>
+              <label for="document" class="inp">
+                <input type="text" id="document" formControlName="document">
+                <span class="label">Número de documento</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <label for="phoneNumber" class="inp">
+                <input type="number" id="phoneNumber" formControlName="phoneNumber">
+                <span class="label">Numero</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div class="card-button">
+          <ion-row>
+            <ion-col>
+              <app-button [type]="'submit'" [text]="'Continuar'" [color]="'button-primary'"
+                (clickButton)="onSubmitStepOne()">
+              </app-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <app-button [text]="'Cancelar'" [color]="'button-liner'" routerLink="/login"></app-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </form>
+
+    </ion-card>
+  </div>
+</ion-content>
