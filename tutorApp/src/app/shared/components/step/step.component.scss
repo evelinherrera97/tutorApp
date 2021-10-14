@@ -1,0 +1,40 @@
+.stepper {
+    display: flex;
+    justify-content: center;
+    .content-step {
+        display: flex;
+        align-items: center;
+    }
+    .cicle {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        &.current {
+            border: 2px solid #62b6cf;
+            background: white;
+            color: #62b6cf;
+        }
+        &.next {
+            content: 'x';
+            background: linear-gradient(90deg, #62b6cf 0%, #62b6cf 100%);
+            border: 2px solid white;
+            color: white;
+        }
+        &.ok{
+            background: #42d77d;
+            border: white;
+            color: white;
+        }
+    }
+    .liner {
+        width: 20px;
+        height: 5px;
+        border: 1px solid #62b6cf;
+        background: #62b6cf;
+    }
+    
+}

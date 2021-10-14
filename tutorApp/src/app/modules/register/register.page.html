@@ -1,15 +1,14 @@
-<ion-content [fullscreen]="true">
+<ion-content class="content" [fullscreen]="true">
   <div id="container">
     <div class="content-logo">
-      logo
+      <img src="../../../assets/image/descarga.png" alt="" srcset="">
     </div>
 
     <ion-card class="ion-padding">
-      <div class="content-stepper">
-        <!-- <app-step class="stepper" [info]="info"></app-step> -->
-      </div>
 
-
+      <ion-row class="ion-justify-content-center">
+        <app-step class="stepper" [info]="info"></app-step>
+      </ion-row>
       <form [formGroup]="registerFormStepOne" *ngIf="stepOne">
         <ion-row class="card-header ion-text-center">
           <ion-col>
@@ -40,13 +39,13 @@
         <div class="card-button">
           <ion-row>
             <ion-col>
-              <app-button [type]="'submit'" [text]="'buttons.continue'" [color]="'button-primary'"
+              <app-button [type]="'submit'" [text]="'Siguiente'" [color]="'button-primary'"
                 (clickButton)="onSubmitStepOne()"></app-button>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              <app-button [text]="'buttons.cancel'" [color]="'button-line'"></app-button>
+              <app-button [text]="'Cancelar'" [color]="'button-liner'" routerLink="/login"></app-button>
             </ion-col>
           </ion-row>
         </div>
@@ -55,7 +54,7 @@
       <form [formGroup]="registerFormStepTwo" *ngIf="stepTwo">
         <ion-row class="card-header ion-text-center">
           <ion-col>
-            <h1 class="title">¡Hola Manuela!</h1>
+            <h1 class="title">¡Hola {{name}}!</h1>
             <p class="secodtitle">Ahora crea tu usuario</p>
           </ion-col>
         </ion-row>
@@ -93,13 +92,13 @@
           <ion-row>
             <ion-col>
               <app-button [type]="'submit'" [text]="'Continuar'" [color]="'button-primary'"
-                (clickButton)="onSubmitStepOne()">
+                (clickButton)="onSubmitStepTwo()">
               </app-button>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              <app-button [text]="'Cancelar'" [color]="'button-liner'" routerLink="/login"></app-button>
+              <app-button [text]="'Volver'" [color]="'button-liner'" routerLink="/login"></app-button>
             </ion-col>
           </ion-row>
         </div>
@@ -116,7 +115,7 @@
           <ion-row>
             <ion-col>
               <label for="rol" class="inp">
-                <select id="rol" formControlName="rol">
+                <select #mySelect id="rol" formControlName="rol" (change)="getValueSelectRol(mySelect.value)">
                   <option value="tutor">Tutor</option>
                   <option value="student">Estudiante</option>
                 </select>
@@ -125,7 +124,7 @@
               </label>
             </ion-col>
           </ion-row>
-          <ion-row>
+          <ion-row *ngIf="rol">
             <ion-col>
               <label for="especialidad" class="inp">
                 <select id="especialidad" formControlName="especialidad">
@@ -160,26 +159,16 @@
       <form [formGroup]="registerFormStepFour" *ngIf="stepFour">
         <ion-row class="card-header ion-text-center">
           <ion-col>
-            <h1 class="title">¡Hola Manuela!</h1>
-            <p class="secodtitle">Ahora crea tu usuario</p>
+            <h1 class="title">¡Por ultimo!</h1>
+            <p class="secodtitle">Ingresa el correo institucional</p>
           </ion-col>
         </ion-row>
         <div class="step-two">
           <ion-row>
-            <ion-col size="3">
-              <label for="documentType" class="inp">
-                <select id="documentType" formControlName="documentType">
-                  <option value="cc">CC</option>
-                  <option value="ti">TI</option>
-                </select>
-                <span class="label">CC</span>
-                <span class="focus-bg"></span>
-              </label>
-            </ion-col>
             <ion-col>
               <label for="document" class="inp">
-                <input type="text" id="document" formControlName="document">
-                <span class="label">Número de documento</span>
+                <input type="email" id="document" formControlName="email">
+                <span class="label">Correo institucional</span>
                 <span class="focus-bg"></span>
               </label>
             </ion-col>
@@ -187,8 +176,17 @@
           <ion-row>
             <ion-col>
               <label for="phoneNumber" class="inp">
-                <input type="number" id="phoneNumber" formControlName="phoneNumber">
-                <span class="label">Numero</span>
+                <input type="password" id="phoneNumber" formControlName="password">
+                <span class="label">Contraseña</span>
+                <span class="focus-bg"></span>
+              </label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <label for="phoneNumber" class="inp">
+                <input #repeatPass type="password" id="phoneNumber">
+                <span class="label">Validar contraseña</span>
                 <span class="focus-bg"></span>
               </label>
             </ion-col>
@@ -198,7 +196,7 @@
           <ion-row>
             <ion-col>
               <app-button [type]="'submit'" [text]="'Continuar'" [color]="'button-primary'"
-                (clickButton)="onSubmitStepOne()">
+                (clickButton)="onSubmitStepFour()">
               </app-button>
             </ion-col>
           </ion-row>

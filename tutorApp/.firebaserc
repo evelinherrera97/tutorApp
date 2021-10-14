@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tutorapp-563a7": {
+      "hosting": {
+        "app": [
+          "tutorapp-563a7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tutorapp-563a7"
+  }
+}

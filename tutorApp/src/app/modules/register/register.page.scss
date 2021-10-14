@@ -1,3 +1,11 @@
 @import "../../../theme/forms.scss";
-
+.content {
+    display: flex;
+    align-items: center;
+    .content-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
 

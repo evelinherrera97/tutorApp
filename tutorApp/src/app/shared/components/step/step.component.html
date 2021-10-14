@@ -1,0 +1,6 @@
+<div class="stepper">
+  <div *ngFor="let item of info; last as isLast" class="content-step">
+    <div class="cicle {{item.type}}">{{item.text}}</div>
+    <span class="liner" *ngIf="!isLast"></span>
+  </div>
+</div>
