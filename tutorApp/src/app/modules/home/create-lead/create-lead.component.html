@@ -1,0 +1,78 @@
+<ion-content class="content" [fullscreen]="true">
+
+  <ion-row class="card-header ion-text-center">
+    <ion-col>
+      <h1 class="title">Crea una nueva tutoria</h1>
+      <p class="secodtitle">Recuerda que es importa ...</p>
+    </ion-col>
+  </ion-row>
+  <ion-card class="ion-padding">
+    <form [formGroup]="registerLead">
+      <ion-row>
+        <ion-col>
+          <label for="name" class="inp">
+            <input type="text" id="document" formControlName="titulo">
+            <span class="label">Titulo</span>
+            <span class="focus-bg"></span>
+          </label>
+        </ion-col>
+        <ion-col>
+          <label for="rol" class="inp">
+            <select #mySelect id="rol" formControlName="materia">
+              <option value="Algebra">Algebra</option>
+              <option value="Calculo I">Calculo I</option>
+              <option value="Calculo II">Calculo II</option>
+              <option value="Calculo II">Calculo III</option>
+              <option value="Estadistica">Estadistica</option>
+              <option value="Fisica I">Fisica I</option>
+              <option value="Fisica II">Fisica II</option>
+              <option value="Fisica III">Fisica III</option>
+              <option value="Quimica">Quimica</option>
+              <option value="Probabilidad">Probabilidad</option>
+            </select>
+            <span class="label">Materia</span>
+            <span class="focus-bg"></span>
+          </label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <label for="name" class="inp">
+            <input type="date" id="document" formControlName="date">
+            <span class="label">Fecha</span>
+            <span class="focus-bg"></span>
+          </label>
+        </ion-col>
+        <ion-col>
+          <label for="name" class="inp">
+            <input type="time" id="document" formControlName="time">
+            <span class="label">Hora</span>
+            <span class="focus-bg"></span>
+          </label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <label for="rol" class="inp">
+            <select #mySelect id="rol" formControlName="modalidad">
+              <option value="Presencial">Presencial</option>
+              <option value="Virtual">Virtual</option>
+            </select>
+            <span class="label">Modalidad</span>
+            <span class="focus-bg"></span>
+          </label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <label for="name" class="inp">
+            <input type="text" id="document" formControlName="lugar">
+            <span class="label">Lugar</span>
+            <span class="focus-bg"></span>
+          </label>
+        </ion-col>
+      </ion-row>
+    </form>
+    <app-button class="ion-margin-top" [type]="'submit'" [text]="'Crear'" [color]="'button-primary'" (clickButton)="onSubmit()"></app-button>
+  </ion-card>
+</ion-content>

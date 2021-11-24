@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -23,8 +24,8 @@ export class RegisterPage implements OnInit {
     phoneNumber: ['', Validators.required],
   });
   registerFormStepThree = this.fb.group({
-    rol: ['', Validators.required],
-    especialidad: ['', Validators.required],
+    rol: ['', Validators.required]
+    // especialidad: ['', Validators.required],
   });
   registerFormStepFour = this.fb.group({
     email: ['', Validators.required],
@@ -58,6 +59,7 @@ export class RegisterPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     public router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -142,17 +144,22 @@ export class RegisterPage implements OnInit {
     }
   }
 
-
   onSubmitStepFour() {
     if (this.registerFormStepFour.valid) {
-      const body = { ...this.registerFormStepOne.value, ...this.registerFormStepTwo.value, ...this.registerFormStepThree.value, ...this.registerFormStepFour.value }
-      // this.registerServices.registerUser(body).subscribe((resp) => {
-      //   console.log('respo->', resp);
-      //   console.log('body->', body);
+      if (this.registerFormStepFour.value.email.includes('poligran.edu.co')) {
+        const body = { ...this.registerFormStepOne.value, ...this.registerFormStepTwo.value, ...this.registerFormStepThree.value, ...this.registerFormStepFour.value }
+        const flag = this.userService.registerUser(body);
+        if (flag) {
+          console.log(body)
+          this.router.navigate(['/home'])
+        } else {
+          console.log('no se registro correctamente');
+        }
+      } else {
+        console.log('el correo no es institucional');
+        
+      }
 
-      // })
-      console.log(body)
-      this.router.navigate(['/home'])
 
     }
   }
