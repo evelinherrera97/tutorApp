@@ -15,18 +15,16 @@ export class UserService {
     private angularFirestore: AngularFirestore
   ) { }
 
-  async registerUser(data) {
+  async userRegister(userData) {  
     const db = getFirestore();
     try {
-      const docRef = await addDoc(collection(db, "users"), data);
-      console.log("Document written with ID: ", docRef);
-
+      const docRef = await addDoc(collection(db, "users"), userData);
       return docRef.id
     } catch (e) {
       console.error("Error adding document: ", e);
       return e
     }
-  }
+  } 
 
   getAllUser() {  
     return this.angularFirestore.collection('users').snapshotChanges();  

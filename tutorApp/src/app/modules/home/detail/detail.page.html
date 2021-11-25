@@ -1,0 +1,28 @@
+
+
+<ion-content>
+  <ion-card *ngIf="item.rol === tutor">
+    <ion-card-header>
+      <ion-card-subtitle>{{item.tutor.name}} {{item.tutor.surname}}</ion-card-subtitle>
+      <ion-card-title>{{item.materia}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-icon name="trash-outline" slot="end"></ion-icon>
+      <p><b>Fecha:</b>{{item.date}}</p>
+      <p><b>Hora:</b>{{item.time}}</p>
+      <p><b>Modalidad:</b>{{item.modalidad}}</p>
+      <p><b>Lugar:</b>{{item.lugar}}</p>
+      <p><b>Alumnos registrados:</b></p>
+      <ul>
+        <li *ngFor="let element of item.alumno">
+          <p>{{element.name}} {{element.surname}}</p>
+          <p>{{element.email}}</p>
+        </li>
+      </ul>
+      <app-button [type]="'submit'" [text]="'Entiendo'" [color]="'button-primary'"
+                (clickButton)="goToBack()"></app-button>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

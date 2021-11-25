@@ -7,9 +7,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public userType: any;
 
   constructor(
     private _user: UserService
-  ) {}
+  ) {
+    this.userType = this._user.user$.rol    
+  }
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { TutorshipsService } from 'src/app/services/tutorships.service';
 import { UserService } from 'src/app/services/user.service';
+import { DetailPage } from '../detail/detail.page';
 
 @Component({
   selector: 'app-list-lead',
@@ -13,7 +15,8 @@ export class ListLeadComponent implements OnInit {
 
   constructor(
     public _tutorshipsService : TutorshipsService,
-    public _userServices:  UserService
+    public _userServices:  UserService,
+    public modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -41,6 +44,15 @@ export class ListLeadComponent implements OnInit {
     }
     this.list = items
     console.log('EL PUTOOO', this.list);
+  }
+
+  async presentModal(item) {
+    const modal = await this.modalController.create({
+      component: DetailPage,
+      cssClass: 'my-custom-class',
+      componentProps: {item}
+    });
+    return await modal.present();
   }
 
 }

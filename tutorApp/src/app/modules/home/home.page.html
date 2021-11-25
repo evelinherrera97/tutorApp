@@ -4,12 +4,17 @@
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="list-lead">
       <ion-icon name="map"></ion-icon>
-      <ion-label>Tutorias</ion-label>
+      <ion-label>Mis Tutorias</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="create-lead">
+    <ion-tab-button tab="create-lead" *ngIf="userType == 'tutor'">
       <ion-icon name="person-circle"></ion-icon>
-      <ion-label>Crear</ion-label>
+      <ion-label>Crear tutorias</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="create-lead" *ngIf="userType == 'student'">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Buscar tutorias</ion-label>
     </ion-tab-button>
 
     

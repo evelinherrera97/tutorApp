@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -56,14 +57,26 @@ export class RegisterPage implements OnInit {
     }
   ]
 
+  public text: string;
   constructor(
     private fb: FormBuilder,
     public router: Router,
-    private userService: UserService
+    private userService: UserService,
+    public toastController: ToastController,
   ) { }
 
   ngOnInit() {
   }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: this.text,
+      duration: 5000,
+      color: "danger"
+    });
+    toast.present();
+  }
+
 
   onSubmitStepOne() {
     if (this.registerFormStepOne.valid) {
@@ -89,7 +102,8 @@ export class RegisterPage implements OnInit {
         }
       ]
     } else {
-      // this.registerFormStepOne['controls'][name]  
+      this.text = "Valide los datos"
+      this.presentToast();
     }
   }
 
@@ -115,6 +129,9 @@ export class RegisterPage implements OnInit {
           text: '3'
         }
       ]
+    } else {
+      this.text = "Valide los datos"
+      this.presentToast();
     }
   }
   onSubmitStepThree() {
@@ -139,8 +156,10 @@ export class RegisterPage implements OnInit {
           type: 'current',
           text: '4'
         }
-      ]
-
+      ];
+    } else {
+      this.text = "Valide los datos"
+      this.presentToast();
     }
   }
 
@@ -148,19 +167,22 @@ export class RegisterPage implements OnInit {
     if (this.registerFormStepFour.valid) {
       if (this.registerFormStepFour.value.email.includes('poligran.edu.co')) {
         const body = { ...this.registerFormStepOne.value, ...this.registerFormStepTwo.value, ...this.registerFormStepThree.value, ...this.registerFormStepFour.value }
-        const flag = this.userService.registerUser(body);
+        const flag = this.userService.userRegister(body);
         if (flag) {
-          console.log(body)
+          this.userService.user$ = body;
           this.router.navigate(['/home'])
         } else {
-          console.log('no se registro correctamente');
+          this.text = "No se registro correctamente"
+          this.presentToast();
         }
       } else {
-        console.log('el correo no es institucional');
-        
+        this.text = "el correo no es institucional"
+        this.presentToast();
+
       }
-
-
+    } else {
+      this.text = "Valide los datos"
+        this.presentToast();
     }
   }
 

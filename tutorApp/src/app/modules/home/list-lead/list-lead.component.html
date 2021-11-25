@@ -5,19 +5,21 @@
       <h1 class="title">Bienvenido</h1>
       <p class="secodtitle">Aca puede ser las tutorias que tienes pendientes</p>
     </ion-col>
+    <ion-icon name="ribbon-outline" slot="start"></ion-icon>
   </ion-row>
-  <ion-row *ngFor="let item of list">
-      <ion-card >
+  <ion-row class="ion-justify-content-center" *ngFor="let item of list">
+      <ion-card (click)="presentModal(item)">
         <ion-item>
-          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-icon name="ribbon-outline" slot="start"></ion-icon>
           <ion-label>{{item.titulo}}</ion-label>
-          <ion-button fill="outline" slot="end">View</ion-button>
+          <ion-button fill="outline" slot="end">Ver detalle</ion-button>
         </ion-item>
-
         <ion-card-content>
-          This is content, without any paragraph or header tags,
-          within an ion-card-content element.
+          <p><b>Fecha:</b>{{item.date}}</p>
+          <p><b>Hora:</b>{{item.time}}</p>
+          <p><b>Modalidad:</b>{{item.modalidad}}</p>
         </ion-card-content>
       </ion-card>
+
   </ion-row>
 </ion-content>
