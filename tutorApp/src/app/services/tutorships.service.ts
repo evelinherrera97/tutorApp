@@ -16,5 +16,17 @@ export class TutorshipsService {
 
   getAllTutorships() {  
     return this.angularFirestore.collection('tutorships').snapshotChanges();  
+  }
+
+  deleteItem (id) {
+    this.angularFirestore.doc('tutorships/' + id).delete(); 
+
+  }
+
+  updateTutorships(tutorshipsid, tutorshipsInfo) {  
+    delete tutorshipsInfo.id;  
+    this.angularFirestore.doc('tutorships/' + tutorshipsid).update(tutorshipsInfo);  
   } 
+
+ 
 }

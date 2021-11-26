@@ -9,6 +9,7 @@ import { CreateLeadComponent } from './create-lead/create-lead.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ListLeadComponent } from './list-lead/list-lead.component';
+import { AllLeadComponent } from './all-lead/all-lead.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ListLeadComponent } from './list-lead/list-lead.component';
   declarations: [
     HomePage,
     CreateLeadComponent,
-    ListLeadComponent
+    ListLeadComponent,
+    AllLeadComponent
   ]
 })
 export class HomePageModule {}

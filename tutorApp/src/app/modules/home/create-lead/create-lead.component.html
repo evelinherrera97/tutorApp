@@ -3,10 +3,10 @@
   <ion-row class="card-header ion-text-center">
     <ion-col>
       <h1 class="title">Crea una nueva tutoria</h1>
-      <p class="secodtitle">Recuerda que es importa ...</p>
+      <p class="secodtitle">Recuerda que es agregar el lugar en el cual se va a realizar la tutoria, si es virtual, agregar el link de la reunion</p>
     </ion-col>
   </ion-row>
-  <ion-card class="ion-padding">
+  <ion-card class="card-create">
     <form [formGroup]="registerLead">
       <ion-row>
         <ion-col>
@@ -73,6 +73,8 @@
         </ion-col>
       </ion-row>
     </form>
-    <app-button class="ion-margin-top" [type]="'submit'" [text]="'Crear'" [color]="'button-primary'" (clickButton)="onSubmit()"></app-button>
+    <div class="ion-margin-top">
+      <app-button [type]="'submit'" [text]="'Crear'" [color]="'button-primary'" (clickButton)="onSubmit()"></app-button>
+    </div>
   </ion-card>
 </ion-content>

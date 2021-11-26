@@ -17,6 +17,12 @@
     color: #122846;
     @extend %riple-button;
 }
+.button-delete {
+    background-color: transparent;
+    border: 1px solid rgb(255, 84, 61);
+    color: rgb(255, 84, 61);
+    @extend %riple-button;
+}
 button[disabled] {
     opacity: .4;
 }

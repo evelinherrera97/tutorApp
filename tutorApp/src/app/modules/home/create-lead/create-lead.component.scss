@@ -1,1 +1,8 @@
-@import '../../../../theme/forms.scss'
+@import '../../../../theme/forms.scss';
+
+.content {
+    --background: #f7f7f7;
+    .card-create {
+        padding: 50px 20px;
+    }
+}
